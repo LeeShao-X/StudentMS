@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="driverClassName">com.mysql.cj.jdbc.Driver</property>
+    <property name="url">
+      jdbc:mysql://localhost:3306/student_ms?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=GMT%2b8
+    </property>
+    <property name="username">root</property>
+    <property name="password">123456</property>
+
+    <!-- SQL dialect -->
+    <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+    <property name="connection.provider_class">
+      com.alibaba.druid.support.hibernate.DruidConnectionProvider
+    </property>
+    <!--开启sql统计 -->
+    <property name="filters">stat</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <!-- Echo all executed SQL to stdout -->
+    <property name="show_sql">true</property>
+    <property name="format_sql">true</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <!-- 注册实体类 全限定类名 -->
+    <mapping class="PO.Student"/>
+    <mapping class="PO.Admin"/>
+    <mapping class="PO.Score"/>
+    <mapping class="PO.Course"/>
+  </session-factory>
+</hibernate-configuration>
